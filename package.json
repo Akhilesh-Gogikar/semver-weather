@@ -1,0 +1,17 @@
+{
+  "name": "semver-weather",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Time-filter npm packuments and render dependency reproducibility calendars.",
+  "type": "commonjs",
+  "bin": {
+    "semver-weather": "src/semver-weather.js"
+  },
+  "scripts": {
+    "demo": "node src/semver-weather.js run fixtures/demo/manifest.json --json demo-output/weather.json --html demo-output/weather.html",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

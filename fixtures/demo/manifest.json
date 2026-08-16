@@ -1,0 +1,10 @@
+{
+  "name": "synthetic-four-season-project",
+  "dates": ["2025-01-01", "2025-02-01", "2025-03-01", "2025-04-01"],
+  "cwd": ".",
+  "commands": {
+    "install": ["node", "stage.js", "install", "{date}"],
+    "build": ["node", "stage.js", "build", "{date}"],
+    "test": ["node", "stage.js", "test", "{date}"]
+  }
+}
