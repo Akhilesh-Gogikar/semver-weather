@@ -27,7 +27,10 @@ test("release and community metadata is internally consistent", () => {
   assert.match(fs.readFileSync(path.join(root, metadata.bin["semver-weather"]), "utf8"), /const VERSION = "0\.1\.0"/);
   const license = fs.readFileSync(path.join(root, "LICENSE"), "utf8");
   assert.match(license, /Copyright \(c\) 2026 Akhilesh Gogikar/);
-  assert.equal(fs.readFileSync(path.join(root, ".github/CODEOWNERS"), "utf8"), "* @akigogikar\n");
+  assert.equal(
+    fs.readFileSync(path.join(root, ".github/CODEOWNERS"), "utf8").trim(),
+    "* @akigogikar",
+  );
   const release = fs.readFileSync(path.join(root, ".github/workflows/release.yml"), "utf8");
   assert.match(release, /gh release create/);
   assert.doesNotMatch(release, /npm publish|publish[- ]to[- ]pypi/i);
