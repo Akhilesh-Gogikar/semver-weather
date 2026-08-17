@@ -1,14 +1,36 @@
 {
   "name": "semver-weather",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Time-filter npm packuments and render dependency reproducibility calendars.",
+  "license": "MIT",
+  "author": "Akhilesh Gogikar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akigogikar/semver-weather.git"
+  },
+  "homepage": "https://github.com/akigogikar/semver-weather#readme",
+  "bugs": {
+    "url": "https://github.com/akigogikar/semver-weather/issues"
+  },
+  "keywords": [
+    "npm",
+    "reproducibility",
+    "semver",
+    "time-travel"
+  ],
+  "files": [
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
   "type": "commonjs",
   "bin": {
     "semver-weather": "src/semver-weather.js"
   },
   "scripts": {
     "demo": "node src/semver-weather.js run fixtures/demo/manifest.json --json demo-output/weather.json --html demo-output/weather.html",
+    "check": "npm test",
     "test": "node --test"
   },
   "engines": {

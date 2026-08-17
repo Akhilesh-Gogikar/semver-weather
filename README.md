@@ -1,29 +1,41 @@
 # Semver Weather
 
-> **Private incubation repository. Do not publish or announce yet.**
+[![CI](https://github.com/akigogikar/semver-weather/actions/workflows/ci.yml/badge.svg)](https://github.com/akigogikar/semver-weather/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/akigogikar/semver-weather)](LICENSE)
 
-Semver Weather answers a narrow question: **would this npm project have installed, built, and tested on each sampled date?** It filters public npm packuments at a publication cutoff, delegates resolution to native npm, classifies the first failing stage, and emits deterministic JSON plus a static weather calendar.
+> **Status:** 0.1.0 launch candidate in a private repository. It is usable for synthetic and public-package experiments, but has not completed the owner’s public-launch review and is not published to a package registry.
 
-## Quickstart (offline)
+Semver Weather asks a narrow question: **would this npm project have installed, built, and tested on each sampled date?** It filters public registry packuments at a publication cutoff, delegates dependency resolution to native npm, classifies the first failing stage, and emits deterministic JSON plus a static weather calendar.
 
-Requires Node.js 20 or newer. There are no runtime or test dependencies.
+## Install from a local checkout
+
+Requires Node.js 20 or newer. CI tests Node.js 20, 22, and 24 on Linux, plus the current Node.js 24 line on macOS and Windows. There are no runtime dependencies.
 
 ```sh
-npm test
-npm run demo
-open demo-output/weather.html
+git clone https://github.com/akigogikar/semver-weather.git
+cd semver-weather
+npm install --global .
+semver-weather --help
 ```
 
-The demo is entirely synthetic. Its four dates intentionally produce install, build, test, and passing outcomes. Running it twice produces byte-identical JSON.
+For a repository-only workflow, replace `semver-weather` below with `node src/semver-weather.js` and skip the global install.
 
-Filter a captured public packument without network access:
+## One-command offline demo
 
 ```sh
-node src/semver-weather.js filter fixtures/demo/packument.json \
+npm run demo
+```
+
+Open `demo-output/weather.html` locally. The synthetic four-date fixture intentionally produces install, build, test, and passing outcomes. It performs no registry access, and repeated runs produce byte-identical JSON.
+
+Filter a captured packument without network access:
+
+```sh
+semver-weather filter fixtures/demo/packument.json \
   --cutoff 2025-02-15 --output filtered.json
 ```
 
-## Sampling manifest
+## Sample a project
 
 Commands are argv arrays, never shell strings. `{date}` and `{registry}` placeholders are replaced by the runner.
 
@@ -41,18 +53,18 @@ Commands are argv arrays, never shell strings. `{date}` and `{registry}` placeho
 ```
 
 ```sh
-node src/semver-weather.js run manifest.json --json weather.json --html weather.html
+semver-weather run manifest.json --json weather.json --html weather.html
 ```
 
-`dates: ["YYYY-MM-DD", ...]` can replace `sampling`. Date-only cutoffs include that entire UTC day. The runner exports `SEMVER_WEATHER_DATE`; without `--allow-network`, it also sets npm's offline flag.
+`dates: ["YYYY-MM-DD", ...]` can replace `sampling`. Date-only cutoffs include the entire UTC day. The runner exports `SEMVER_WEATHER_DATE`; without `--allow-network`, it also sets npm’s offline flag.
 
-## Native npm with the time-filter proxy
+## Opt-in public-registry proxy
 
-Network access is deliberately refused unless it is explicitly enabled:
+Registry access is refused unless explicitly enabled:
 
 ```json
 {
-  "name": "public-npm-sample",
+  "name": "public-registry-sample",
   "dates": ["2024-01-01"],
   "cwd": "../project",
   "registry": { "upstream": "https://registry.npmjs.org/" },
@@ -61,27 +73,36 @@ Network access is deliberately refused unless it is explicitly enabled:
 ```
 
 ```sh
-node src/semver-weather.js run manifest.json --allow-network
+semver-weather run manifest.json --allow-network
 ```
 
-The runner starts a loopback packument proxy, changes its cutoff for each sequential sample, and points native npm at it. A standalone proxy is also available:
+The runner starts a loopback packument proxy, changes its cutoff for each sequential sample, and points native npm at it. A standalone proxy is available for controlled experiments:
 
 ```sh
-node src/semver-weather.js proxy --cutoff 2024-01-01 --allow-network --port 4873
+semver-weather proxy --cutoff 2024-01-01 --allow-network --port 4873
 ```
 
-## Output and classifications
+## Output
 
-The JSON schema records runtime, network mode, sample date, argv, bounded stdout/stderr, exit status, and a copyable single-date repro command. A sample is `pass`, `install-failure`, `build-failure`, or `test-failure`; later stages are `blocked` after the first failure. Reports contain no JavaScript or remote assets.
+The versioned result JSON records runtime, network mode, sample date, argv, bounded stdout/stderr, exit status, and a single-date repro command. A sample is `pass`, `install-failure`, `build-failure`, or `test-failure`; later stages are `blocked` after the first failure. HTML reports are escaped, keyboard-readable, script-free, and contain no remote assets.
 
-## Important limitations
+## Honest boundaries
 
-- This is an evidence-producing MVP, not a historical npm resolver. Native npm still resolves the filtered metadata.
-- npm packuments expose version publication times, not historical tag mutations. If `latest` points to a future version, the proxy uses the most recently published retained version.
-- Non-version packument metadata is current, not historically reconstructed.
-- Tarball downloads can go directly to URLs in packuments. `--allow-network` is a consent gate, not a network sandbox; trusted child commands can access anything the host permits.
-- The proxy supports public, unauthenticated packument reads only. It does not forward credentials, audit POSTs, private registries, or registry writes.
-- Reproducibility still requires pinning Node/npm, OS/container, source revision, environment, and any package lifecycle behavior. The report intentionally omits wall-clock timings.
-- No public license is granted. Ownership, license, trademark, security, contractual, and provenance review remain release gates.
+- This is an evidence-producing MVP, not a historical dependency resolver. Native npm resolves the filtered metadata.
+- Public packuments expose version publication times, not historical tag mutations. If `latest` points to an excluded version, v0 uses the most recently published retained version.
+- Non-version packument metadata is current rather than historically reconstructed.
+- Tarballs can be downloaded directly from URLs inside packuments. `--allow-network` is a consent gate, not a network sandbox.
+- The proxy supports unauthenticated reads; it does not forward credentials, audit writes, private registries, or registry mutations.
+- Reproducibility still requires a pinned source revision, Node/npm, operating environment, and lifecycle behavior. Wall-clock timings are intentionally omitted.
+- PyPI, Cargo, private registries, and ecosystem-wide claims are out of scope for 0.1.x.
 
-See [SCOPE.md](SCOPE.md), [PROVENANCE.md](PROVENANCE.md), and [docs/PLAN.md](docs/PLAN.md).
+## Project navigation
+
+- Design: [architecture](docs/ARCHITECTURE.md), [API stability](docs/API_STABILITY.md), [roadmap](ROADMAP.md)
+- Operations: [troubleshooting](docs/TROUBLESHOOTING.md), [privacy](docs/PRIVACY.md), [accessibility](docs/ACCESSIBILITY.md)
+- Community: [contributing](CONTRIBUTING.md), [conduct](CODE_OF_CONDUCT.md), [support](SUPPORT.md), [governance](GOVERNANCE.md)
+- Safety: [security policy](SECURITY.md), [provenance](PROVENANCE.md), [scope](SCOPE.md)
+- Release: [changelog](CHANGELOG.md), [launch kit](docs/LAUNCH_KIT.md), [MIT license](LICENSE)
+- Related experiments: [optional ecosystem map](ECOSYSTEM.md)
+
+Security vulnerabilities should be reported through a [private security advisory](https://github.com/akigogikar/semver-weather/security/advisories/new), never a public issue.

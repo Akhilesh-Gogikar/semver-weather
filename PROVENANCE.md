@@ -18,3 +18,6 @@ This repository must remain independently developed from public sources and synt
 | 2026-08-16 | [npm registry API package metadata](https://github.com/npm/registry/blob/main/docs/REGISTRY-API.md) | Public packument field conventions | npm registry repository terms | Implementation is independent; synthetic package data only |
 | 2026-08-16 | Node.js 20 standard library documentation | CLI, HTTP proxy, process runner, tests | MIT | No runtime dependencies; no copied snippets |
 | 2026-08-16 | Locally authored synthetic fixtures | Offline proof gate and demo | Internal incubation | No private, customer, partner, or production data |
+| 2026-08-17 | [MIT License template](https://opensource.org/license/mit) | Repository license text | MIT | Copyright line set by repository owner |
+| 2026-08-17 | Node package metadata and GitHub workflow public documentation | Local install, CI, release, and community metadata | Documentation terms | Independently authored configuration; no runtime dependency added |
+| 2026-08-17 | Locally authored community, architecture, privacy, accessibility, and launch documentation | 0.1.0 readiness | MIT repository contribution | Tailored to this repository and its existing synthetic/public boundary |

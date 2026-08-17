@@ -31,6 +31,9 @@ test("offline runner classifies each failing stage and renders static HTML", asy
   assert.match(html, /4 sampled dates/);
   assert.match(html, /install-failure/);
   assert.doesNotMatch(html, /<script/i);
+  assert.match(html, /href="#main-content"/);
+  assert.match(html, /aria-labelledby="sample-1"/);
+  assert.match(html, /tabindex="0" aria-label="Reproduction command/);
 });
 
 test("registry-backed sampling requires explicit network consent", async () => {

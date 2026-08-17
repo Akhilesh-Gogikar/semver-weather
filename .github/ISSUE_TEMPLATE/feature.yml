@@ -1,0 +1,32 @@
+name: Feature request
+description: Propose a narrow, evidence-backed improvement within the npm v0 scope.
+title: "feature: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Reproducibility problem
+      description: Describe the user-visible problem without private requirements or data.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public or synthetic evidence
+      description: Link public primary sources or provide a minimal synthetic example.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Smallest useful change
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This does not reimplement dependency resolution or add a non-npm ecosystem.
+          required: true
