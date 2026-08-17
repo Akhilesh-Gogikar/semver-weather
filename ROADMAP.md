@@ -10,6 +10,8 @@ This roadmap is directional, not a delivery promise. Evidence gates outrank date
 - Improve accessible report navigation and machine-readable failure explanations.
 - Document pinned runtime/container recipes without hiding native npm behavior.
 
+The contribution-ready slice is maintained in [ISSUE_SEEDS.md](docs/ISSUE_SEEDS.md). Small validation and documentation issues come first; proxy/process hardening follows; schema work requires a design review. An item moves into 0.1.x only with a synthetic/public proof, deterministic test, and named reviewer.
+
 ## Candidate 0.2 work
 
 - Compare multiple npm versions while keeping the resolver native.

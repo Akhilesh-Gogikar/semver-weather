@@ -3,11 +3,35 @@
 [![CI](https://github.com/akigogikar/semver-weather/actions/workflows/ci.yml/badge.svg)](https://github.com/akigogikar/semver-weather/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/akigogikar/semver-weather)](LICENSE)
 
-> **Status:** 0.1.0 launch candidate in a private repository. It is usable for synthetic and public-package experiments, but has not completed the owner’s public-launch review and is not published to a package registry.
+![Semver Weather social preview: dependency outcomes plotted across release history](docs/assets/social-preview.png)
 
-Semver Weather asks a narrow question: **would this npm project have installed, built, and tested on each sampled date?** It filters public registry packuments at a publication cutoff, delegates dependency resolution to native npm, classifies the first failing stage, and emits deterministic JSON plus a static weather calendar.
+> **Status:** 0.1.0 alpha. It is usable for synthetic and public-package experiments from source, but is not published to a package registry.
 
-## Install from a local checkout
+Semver Weather turns a floating dependency manifest into a date-by-date reproducibility report: **would this project have installed, built, and tested using only package versions available on that date?** It filters public registry metadata at a publication cutoff, delegates resolution to the native package manager, classifies the first failing stage, and emits deterministic JSON plus a static weather calendar.
+
+## Why this is different
+
+- **Time is an input, not a label.** Every sample changes the package metadata visible to the native resolver.
+- **It does not invent another resolver.** Results come from the project’s real install/build/test commands against filtered metadata.
+- **Evidence is replayable.** Stable JSON, bounded logs, explicit stage classifications, and copyable repro commands make a surprising date inspectable.
+- **Offline by default.** The included proof uses only synthetic data; registry and command network access require an explicit decision.
+
+## 60-second offline quickstart
+
+```sh
+git clone https://github.com/akigogikar/semver-weather.git
+cd semver-weather
+npm test
+npm run demo
+```
+
+Expected result: all tests pass, then `demo-output/weather.html` shows four synthetic dates—one install failure, one build failure, one test failure, and one pass. No registry access is used.
+
+## Help make the evidence stronger
+
+Start with the [five prepared issue seeds](docs/ISSUE_SEEDS.md): they range from a small CLI validation fix to schema design and cross-platform process hardening. Comment on the matching issue before coding, or improve a synthetic fixture or explanation without touching runtime code. See the [contributor pathways](CONTRIBUTING.md#contributor-pathways) and [scoped roadmap](ROADMAP.md).
+
+## Install the CLI from a local checkout
 
 Requires Node.js 20 or newer. CI tests Node.js 20, 22, and 24 on Linux, plus the current Node.js 24 line on macOS and Windows. There are no runtime dependencies.
 
@@ -19,14 +43,6 @@ semver-weather --help
 ```
 
 For a repository-only workflow, replace `semver-weather` below with `node src/semver-weather.js` and skip the global install.
-
-## One-command offline demo
-
-```sh
-npm run demo
-```
-
-Open `demo-output/weather.html` locally. The synthetic four-date fixture intentionally produces install, build, test, and passing outcomes. It performs no registry access, and repeated runs produce byte-identical JSON.
 
 Filter a captured packument without network access:
 
@@ -103,6 +119,7 @@ The versioned result JSON records runtime, network mode, sample date, argv, boun
 - Community: [contributing](CONTRIBUTING.md), [conduct](CODE_OF_CONDUCT.md), [support](SUPPORT.md), [governance](GOVERNANCE.md)
 - Safety: [security policy](SECURITY.md), [provenance](PROVENANCE.md), [scope](SCOPE.md)
 - Release: [changelog](CHANGELOG.md), [launch kit](docs/LAUNCH_KIT.md), [MIT license](LICENSE)
+- Contribution queue: [prepared issue seeds](docs/ISSUE_SEEDS.md)
 - Related experiments: [optional ecosystem map](ECOSYSTEM.md)
 
 Security vulnerabilities should be reported through a [private security advisory](https://github.com/akigogikar/semver-weather/security/advisories/new), never a public issue.

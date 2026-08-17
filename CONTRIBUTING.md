@@ -9,6 +9,23 @@ Semver Weather accepts narrowly scoped contributions that improve reproducible e
 3. Run `npm test` and `npm run demo` before editing.
 4. Make the smallest change that demonstrates the behavior with a synthetic or public input.
 
+## Contributor pathways
+
+Choose the smallest rung that matches your confidence; movement between rungs is expected, not ranked.
+
+1. **Reproducer / documenter (`good first issue`)** — run the offline demo, improve a failure explanation, add one validation case, or make a report easier to use. Typical scope: a few hours and one or two files.
+2. **Fixture / implementation contributor (`help wanted`)** — add a synthetic edge case, proxy integration test, diagnostic, or bounded process behavior. Typical scope: one to two focused days.
+3. **Design contributor (`advanced`)** — propose versioned schemas, compatibility policy, or cross-platform process semantics. Start with a written design and proof fixture before code.
+4. **Reviewer / steward** — reproduce pull requests, check clean-room provenance, accessibility, privacy, and deterministic output, then help triage related reports.
+
+The [prepared issue seeds](docs/ISSUE_SEEDS.md) describe five concrete starting points with acceptance criteria and likely files. When a corresponding issue exists, comment with your intended approach before coding. A claim is coordination, not ownership; if no update appears for 14 days, another contributor may ask to continue it.
+
+## Triage and recognition
+
+The maintainer targets an initial label/scope response within seven calendar days, but this is not an SLA. Security reports use the private route and a separate timetable. Triage favors reproducible public/synthetic evidence, v0 scope, and the smallest reviewable change.
+
+Merged contributors are credited in commit history and material release notes. Repeated reviewers and fixture authors may be named in release acknowledgements and invited to review within their demonstrated area. Recognition never requires sharing a real name or employer.
+
 ## Clean-room requirements
 
 - Do not contribute private packages, lockfiles, prompts, traces, customer/partner material, credentials, or unpublished requirements.
@@ -26,4 +43,4 @@ Semver Weather accepts narrowly scoped contributions that improve reproducible e
 
 ## Pull requests
 
-Describe the user-visible behavior, fixture provenance, risk, and rollback. Keep unrelated refactors out. Maintainers may ask for a smaller proof before accepting broader support. By contributing, you agree that your contribution is licensed under the repository’s [MIT License](LICENSE) and that you have the right to submit it.
+Describe the user-visible behavior, fixture provenance, risk, and rollback; link the issue with `Closes #…`. Keep unrelated refactors out. Maintainers may ask for a smaller proof before accepting broader support. By contributing, you agree that your contribution is licensed under the repository’s [MIT License](LICENSE) and that you have the right to submit it.
