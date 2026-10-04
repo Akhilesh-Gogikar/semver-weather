@@ -9,7 +9,7 @@
 
 ## Report privately
 
-Use a [private GitHub security advisory](https://github.com/akigogikar/semver-weather/security/advisories/new). Do not open a public issue for credential exposure, proxy/request handling flaws, command-execution problems, path traversal, report injection, or dependency-chain vulnerabilities.
+Use a [private GitHub security advisory](https://github.com/Akhilesh-Gogikar/semver-weather/security/advisories/new). Do not open a public issue for credential exposure, proxy/request handling flaws, command-execution problems, path traversal, report injection, or dependency-chain vulnerabilities.
 
 Include the affected version or commit, impact, a minimal synthetic reproduction, and any suggested mitigation. Never send real credentials or private registry data. You should receive an acknowledgement when practical; investigation and remediation timing depend on severity and maintainer availability. Please allow coordinated remediation before disclosure.
 

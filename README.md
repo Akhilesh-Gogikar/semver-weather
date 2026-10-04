@@ -1,7 +1,7 @@
 # Semver Weather
 
-[![CI](https://github.com/akigogikar/semver-weather/actions/workflows/ci.yml/badge.svg)](https://github.com/akigogikar/semver-weather/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/akigogikar/semver-weather)](LICENSE)
+[![CI](https://github.com/Akhilesh-Gogikar/semver-weather/actions/workflows/ci.yml/badge.svg)](https://github.com/Akhilesh-Gogikar/semver-weather/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/Akhilesh-Gogikar/semver-weather)](LICENSE)
 
 ![Semver Weather social preview: dependency outcomes plotted across release history](docs/assets/social-preview.png)
 
@@ -19,7 +19,7 @@ Semver Weather turns a floating dependency manifest into a date-by-date reproduc
 ## 60-second offline quickstart
 
 ```sh
-git clone https://github.com/akigogikar/semver-weather.git
+git clone https://github.com/Akhilesh-Gogikar/semver-weather.git
 cd semver-weather
 npm test
 npm run demo
@@ -36,7 +36,7 @@ Start with the [five prepared issue seeds](docs/ISSUE_SEEDS.md): they range from
 Requires Node.js 20 or newer. CI tests Node.js 20, 22, and 24 on Linux, plus the current Node.js 24 line on macOS and Windows. There are no runtime dependencies.
 
 ```sh
-git clone https://github.com/akigogikar/semver-weather.git
+git clone https://github.com/Akhilesh-Gogikar/semver-weather.git
 cd semver-weather
 npm install --global .
 semver-weather --help
@@ -122,4 +122,4 @@ The versioned result JSON records runtime, network mode, sample date, argv, boun
 - Contribution queue: [prepared issue seeds](docs/ISSUE_SEEDS.md)
 - Related experiments: [optional ecosystem map](ECOSYSTEM.md)
 
-Security vulnerabilities should be reported through a [private security advisory](https://github.com/akigogikar/semver-weather/security/advisories/new), never a public issue.
+Security vulnerabilities should be reported through a [private security advisory](https://github.com/Akhilesh-Gogikar/semver-weather/security/advisories/new), never a public issue.

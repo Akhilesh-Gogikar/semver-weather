@@ -29,7 +29,7 @@ test("release and community metadata is internally consistent", () => {
   assert.match(license, /Copyright \(c\) 2026 Akhilesh Gogikar/);
   assert.equal(
     fs.readFileSync(path.join(root, ".github/CODEOWNERS"), "utf8").trim(),
-    "* @akigogikar",
+    "* @Akhilesh-Gogikar",
   );
   const release = fs.readFileSync(path.join(root, ".github/workflows/release.yml"), "utf8");
   assert.match(release, /gh release create/);

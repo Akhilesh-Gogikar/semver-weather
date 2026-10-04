@@ -19,4 +19,4 @@ Before release, traverse the report using only Tab/Shift+Tab, zoom to 200%, insp
 
 The CLI does not provide interactive prompts or terminal-specific accessibility features. Long argv and logs can require horizontal/region navigation. Automated conformance testing and multiple screen-reader/browser combinations are not yet in CI.
 
-Report accessibility defects with the bug template and prefix the title `accessibility:`. Do not include private project output; use the synthetic demo or a redacted report. Security-sensitive findings belong in the [private advisory form](https://github.com/akigogikar/semver-weather/security/advisories/new).
+Report accessibility defects with the bug template and prefix the title `accessibility:`. Do not include private project output; use the synthetic demo or a redacted report. Security-sensitive findings belong in the [private advisory form](https://github.com/Akhilesh-Gogikar/semver-weather/security/advisories/new).

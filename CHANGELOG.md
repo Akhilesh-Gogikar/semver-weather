@@ -19,4 +19,4 @@ All notable changes are recorded here. The project follows semantic versioning w
 - Command output is bounded; credentials are not forwarded by the proxy.
 - The tool remains unsuitable for untrusted projects or private registry data.
 
-[0.1.0]: https://github.com/akigogikar/semver-weather/releases/tag/v0.1.0
+[0.1.0]: https://github.com/Akhilesh-Gogikar/semver-weather/releases/tag/v0.1.0

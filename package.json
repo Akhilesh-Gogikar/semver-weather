@@ -7,11 +7,11 @@
   "author": "Akhilesh Gogikar",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/akigogikar/semver-weather.git"
+    "url": "git+https://github.com/Akhilesh-Gogikar/semver-weather.git"
   },
-  "homepage": "https://github.com/akigogikar/semver-weather#readme",
+  "homepage": "https://github.com/Akhilesh-Gogikar/semver-weather#readme",
   "bugs": {
-    "url": "https://github.com/akigogikar/semver-weather/issues"
+    "url": "https://github.com/Akhilesh-Gogikar/semver-weather/issues"
   },
   "keywords": [
     "npm",

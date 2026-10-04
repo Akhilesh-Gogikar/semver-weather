@@ -78,7 +78,7 @@ Use one primary launch and adapt responses rather than posting the same text rep
 
 **Post 2:** `It filters public package metadata by publication cutoff, delegates to the native resolver, and emits deterministic JSON + a static calendar. The offline demo shows install/build/test failures and one pass—intentionally synthetic, no adoption claims.`
 
-**Post 3:** `Known limits are explicit: no historical tag-event reconstruction, no private credentials, no sandbox. Feedback and five scoped contributor issues: https://github.com/akigogikar/semver-weather`
+**Post 3:** `Known limits are explicit: no historical tag-event reconstruction, no private credentials, no sandbox. Feedback and five scoped contributor issues: https://github.com/Akhilesh-Gogikar/semver-weather`
 
 ## FAQ
 

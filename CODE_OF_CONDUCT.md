@@ -8,7 +8,7 @@ Harassment, threats, discriminatory language, sexualized attention, deliberate m
 
 ## Enforcement
 
-For ordinary conduct concerns, contact the maintainer through the repository owner’s profile rather than debating the incident in an issue. If a report contains sensitive information, use the repository’s [private security advisory form](https://github.com/akigogikar/semver-weather/security/advisories/new) and label it as a conduct report. The maintainer will acknowledge reports when practical, minimize access to report details, hear affected parties, and choose a proportionate response: clarification, warning, content removal, temporary restriction, or permanent exclusion.
+For ordinary conduct concerns, contact the maintainer through the repository owner’s profile rather than debating the incident in an issue. If a report contains sensitive information, use the repository’s [private security advisory form](https://github.com/Akhilesh-Gogikar/semver-weather/security/advisories/new) and label it as a conduct report. The maintainer will acknowledge reports when practical, minimize access to report details, hear affected parties, and choose a proportionate response: clarification, warning, content removal, temporary restriction, or permanent exclusion.
 
 No reporter is promised a particular outcome or response time. Good-faith reports and participation in an investigation must not be retaliated against. The maintainer will disclose conflicts of interest and seek a neutral reviewer when one is available.
 
