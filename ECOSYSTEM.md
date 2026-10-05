@@ -4,5 +4,8 @@ These entries are optional and informational. Semver Weather does not require, b
 
 - [Semver Weather](https://github.com/Akhilesh-Gogikar/semver-weather) — time-filtered dependency reproducibility evidence (this repository).
 - [ReleaseFence](https://github.com/Akhilesh-Gogikar/releasefence) — explainable local checks before a repository release.
+- [DirectiveGraph](https://github.com/Akhilesh-Gogikar/directivegraph) — path-specific agent-instruction precedence traces.
+- [SDK WireDiff](https://github.com/Akhilesh-Gogikar/sdk-wirediff) — semantic behavior differences across language SDKs.
+- [ReviewBus](https://github.com/Akhilesh-Gogikar/reviewbus) — code-review concentration, ownership gaps, and bus-factor risk maps.
 
 Availability of one project says nothing about the readiness or support status of another.
