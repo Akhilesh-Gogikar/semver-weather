@@ -1,13 +1,8 @@
-# Optional ecosystem map
+# Akhilesh Gogikar OSS ecosystem
 
-The following seven repositories are independent experiments under the same maintainer account. These links are **optional and informational**: no tool is required to install, operate, endorse, or remain compatible with another, and the list is not a bundle or product suite.
+These entries are optional and informational. Semver Weather does not require, bundle, endorse, or exchange data with any other listed tool. Each project has an independent scope, lifecycle, security posture, and installation path. A related tool is listed only after it is public.
 
-- [ReleaseFence](https://github.com/Akhilesh-Gogikar/releasefence) — release evidence and policy checks.
 - [Semver Weather](https://github.com/Akhilesh-Gogikar/semver-weather) — time-filtered dependency reproducibility evidence (this repository).
-- [ReviewBus](https://github.com/Akhilesh-Gogikar/reviewbus) — review-event interoperability experiments.
-- [SDK WireDiff](https://github.com/Akhilesh-Gogikar/sdk-wirediff) — semantic cross-SDK differential testing.
-- [TokenFlame](https://github.com/Akhilesh-Gogikar/tokenflame) — token-usage attribution experiments.
-- [MCP Client Autopsy](https://github.com/Akhilesh-Gogikar/mcp-client-autopsy) — client behavior conformance evidence.
-- [DirectiveGraph](https://github.com/Akhilesh-Gogikar/directivegraph) — instruction and policy relationship analysis.
+- [ReleaseFence](https://github.com/Akhilesh-Gogikar/releasefence) — explainable local checks before a repository release.
 
-Each repository has its own scope, security model, license, maturity, and release decision. Inclusion here does not claim integration, interoperability, production readiness, or a shared support commitment.
+Availability of one project says nothing about the readiness or support status of another.

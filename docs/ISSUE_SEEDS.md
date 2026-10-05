@@ -1,12 +1,12 @@
-# Prepared issue seeds
+# Issue seeds
 
-These are issue drafts, not proof that work has been accepted or assigned. Create one issue per seed, preserve the exact title/labels below, and link back here. All fixtures must be synthetic or public and all tests must remain offline unless the issue explicitly says otherwise.
+These mirror the five scoped GitHub issues and keep their design context. The [live ready-for-contribution list](https://github.com/Akhilesh-Gogikar/semver-weather/issues?q=is%3Aissue+is%3Aopen+label%3A%22status%3A+ready%22) is authoritative for assignment and status, and the pinned [welcome issue](https://github.com/Akhilesh-Gogikar/semver-weather/issues/3) is the place to start. Confirm the code still matches a seed before contributing. All fixtures must be synthetic or public and all tests must remain offline unless the issue explicitly says otherwise.
 
 ## 1. Reject unknown CLI flags with an actionable error
 
-**Proposed title:** `Reject unknown CLI flags with an actionable error`
+**Title:** `Reject unknown CLI flags with an actionable error` — [#4](https://github.com/Akhilesh-Gogikar/semver-weather/issues/4), milestone `v0.2 — community evidence`
 
-**Labels:** `good first issue`, `cli`, `tests`
+**Labels:** `good first issue`, `help wanted`, `cli`, `tests`, `difficulty: beginner`, `size: S`, `mentored`, `status: ready`
 
 **Rationale:** `parseArgs` currently stores any `--name`; command handlers silently ignore flags they do not consume. A typo such as `--ouput` can appear successful while writing the default path. Command-specific allowlists would make the CLI safer without adding a dependency.
 
@@ -28,9 +28,9 @@ These are issue drafts, not proof that work has been accepted or assigned. Creat
 
 ## 2. Add a fully offline integration test for the loopback packument proxy
 
-**Proposed title:** `Add a fully offline integration test for the loopback packument proxy`
+**Title:** `Add a fully offline integration test for the loopback packument proxy` — [#5](https://github.com/Akhilesh-Gogikar/semver-weather/issues/5), milestone `v0.2 — community evidence`
 
-**Labels:** `help wanted`, `proxy`, `tests`
+**Labels:** `help wanted`, `proxy`, `tests`, `difficulty: intermediate`, `size: M`, `status: ready`
 
 **Rationale:** Filtering is unit-tested, but the HTTP boundary—method handling, upstream response parsing, headers, and server cleanup—is not. A synthetic loopback upstream can exercise this without public network access.
 
@@ -52,9 +52,9 @@ These are issue drafts, not proof that work has been accepted or assigned. Creat
 
 ## 3. Emit deterministic sidecar diagnostics for excluded packument versions
 
-**Proposed title:** `Emit deterministic sidecar diagnostics for excluded packument versions`
+**Title:** `Emit deterministic sidecar diagnostics for excluded packument versions` — [#6](https://github.com/Akhilesh-Gogikar/semver-weather/issues/6), milestone `v0.2 — community evidence`
 
-**Labels:** `help wanted`, `observability`, `api`
+**Labels:** `help wanted`, `observability`, `api`, `difficulty: intermediate`, `size: M`, `status: ready`
 
 **Rationale:** `filterPackument` correctly excludes future, missing-time, and invalid-time versions, but users only see the filtered packument. A sidecar can explain exclusions without adding non-registry fields or changing existing output bytes.
 
@@ -76,9 +76,9 @@ These are issue drafts, not proof that work has been accepted or assigned. Creat
 
 ## 4. Test and harden child timeout escalation across supported platforms
 
-**Proposed title:** `Test and harden child timeout escalation across supported platforms`
+**Title:** `Test and harden child timeout escalation across supported platforms` — [#7](https://github.com/Akhilesh-Gogikar/semver-weather/issues/7), milestone `v0.2 — community evidence`
 
-**Labels:** `help wanted`, `advanced`, `reliability`, `cross-platform`
+**Labels:** `help wanted`, `advanced`, `reliability`, `cross-platform`, `difficulty: advanced`, `size: L`, `status: ready`
 
 **Rationale:** `runCommand` sends a termination signal and escalates after two seconds, but that path is untested and process semantics differ across operating systems. A stuck child must not hang the runner or leave descendants behind.
 
@@ -100,9 +100,9 @@ These are issue drafts, not proof that work has been accepted or assigned. Creat
 
 ## 5. Define versioned JSON Schemas for manifests and result schemaVersion 1
 
-**Proposed title:** `Define versioned JSON Schemas for manifests and result schemaVersion 1`
+**Title:** `Define versioned JSON Schemas for manifests and result schemaVersion 1` — [#8](https://github.com/Akhilesh-Gogikar/semver-weather/issues/8), milestone `v0.2 — community evidence`
 
-**Labels:** `advanced`, `api`, `design`, `documentation`
+**Labels:** `advanced`, `api`, `design`, `documentation`, `difficulty: advanced`, `size: L`, `status: ready`
 
 **Rationale:** The README and runtime checks describe the contract, but integrators do not have a portable machine-readable schema. Schemas can stabilize tooling without moving resolution logic into this project.
 

@@ -13,7 +13,7 @@ Semver Weather is one Node.js standard-library CLI with four commands. The small
 
 `manifest → dates → optional proxy cutoff → child stages → classified samples → canonical JSON → static HTML`
 
-Stable output excludes wall-clock duration and generation timestamps. Object keys are recursively sorted; arrays preserve semantic order. Child stdout and stderr are bounded. The same fixture, source, environment, seed, and runtime should therefore produce byte-identical result JSON.
+Stable output excludes wall-clock duration and generation timestamps. Object keys are recursively sorted; arrays preserve semantic order. Child stdout and stderr are bounded. The same fixture, source, environment, and runtime should therefore produce byte-identical result JSON.
 
 ## Trust boundaries
 

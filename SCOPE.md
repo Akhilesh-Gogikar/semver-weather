@@ -7,7 +7,7 @@ Dependency manifests are time-varying programs: the same semver ranges can resol
 ## v0 boundary
 
 - Proxy npm packuments and filter versions by publication timestamp.
-- Run the native npm resolver in pinned Node/npm environments across sampled dates.
+- Run the native npm resolver in user-pinned Node/npm environments across sampled dates.
 - Classify install/build/test failures and render a reproducibility calendar with copyable repro commands.
 
 ## Explicit non-goals
@@ -24,4 +24,4 @@ Dependency manifests are time-varying programs: the same semver ranges can resol
 
 ## First proof gate
 
-The same repository, date, runtime image, and seed yields byte-identical result JSON across repeated runs.
+The same repository, date, and runtime image yield byte-identical result JSON across repeated runs.

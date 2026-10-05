@@ -5,16 +5,16 @@
 
 ![Semver Weather social preview: dependency outcomes plotted across release history](docs/assets/social-preview.png)
 
-> **Status:** 0.1.0 alpha. It is usable for synthetic and public-package experiments from source, but is not published to a package registry.
+> **Status:** 0.1.1 alpha. It is usable for synthetic and public-package experiments from source, but is not published to a package registry.
 
 Semver Weather turns a floating dependency manifest into a date-by-date reproducibility report: **would this project have installed, built, and tested using only package versions available on that date?** It filters public registry metadata at a publication cutoff, delegates resolution to the native package manager, classifies the first failing stage, and emits deterministic JSON plus a static weather calendar.
 
 ## Why this is different
 
-- **Time is an input, not a label.** Every sample changes the package metadata visible to the native resolver.
+- **Time is an input, not a label.** With the opt-in registry proxy, every sample changes the package metadata visible to the native resolver.
 - **It does not invent another resolver.** Results come from the project’s real install/build/test commands against filtered metadata.
 - **Evidence is replayable.** Stable JSON, bounded logs, explicit stage classifications, and copyable repro commands make a surprising date inspectable.
-- **Offline by default.** The included proof uses only synthetic data; registry and command network access require an explicit decision.
+- **Offline by default.** The included demo uses only synthetic data and simulates stage outcomes by date. Registry proxying requires `--allow-network`; without it, npm runs with its offline flag. Child commands are not sandboxed.
 
 ## 60-second offline quickstart
 
@@ -38,7 +38,7 @@ Requires Node.js 20 or newer. CI tests Node.js 20, 22, and 24 on Linux, plus the
 ```sh
 git clone https://github.com/Akhilesh-Gogikar/semver-weather.git
 cd semver-weather
-npm install --global .
+npm install --global --ignore-scripts .
 semver-weather --help
 ```
 
@@ -100,7 +100,7 @@ semver-weather proxy --cutoff 2024-01-01 --allow-network --port 4873
 
 ## Output
 
-The versioned result JSON records runtime, network mode, sample date, argv, bounded stdout/stderr, exit status, and a single-date repro command. A sample is `pass`, `install-failure`, `build-failure`, or `test-failure`; later stages are `blocked` after the first failure. HTML reports are escaped, keyboard-readable, script-free, and contain no remote assets.
+The versioned result JSON records runtime, network mode, sample date, argv, bounded stdout/stderr, exit status, and a single-date repro command. A sample is `pass`, `install-failure`, `build-failure`, or `test-failure`; later stages are `blocked` after the first failure. Repro commands assume a source checkout and the same working directory. HTML reports are escaped, keyboard-readable, script-free, and contain no remote assets.
 
 ## Honest boundaries
 
@@ -108,6 +108,8 @@ The versioned result JSON records runtime, network mode, sample date, argv, boun
 - Public packuments expose version publication times, not historical tag mutations. If `latest` points to an excluded version, v0 uses the most recently published retained version.
 - Non-version packument metadata is current rather than historically reconstructed.
 - Tarballs can be downloaded directly from URLs inside packuments. `--allow-network` is a consent gate, not a network sandbox.
+- Without `registry.upstream`, `--allow-network` lets npm resolve against today’s registry, so those samples are not time-filtered.
+- The runner never adds `--ignore-scripts`. An install command without it runs dependency lifecycle scripts from every sampled date with your permissions.
 - The proxy supports unauthenticated reads; it does not forward credentials, audit writes, private registries, or registry mutations.
 - Reproducibility still requires a pinned source revision, Node/npm, operating environment, and lifecycle behavior. Wall-clock timings are intentionally omitted.
 - PyPI, Cargo, private registries, and ecosystem-wide claims are out of scope for 0.1.x.
@@ -118,7 +120,7 @@ The versioned result JSON records runtime, network mode, sample date, argv, boun
 - Operations: [troubleshooting](docs/TROUBLESHOOTING.md), [privacy](docs/PRIVACY.md), [accessibility](docs/ACCESSIBILITY.md)
 - Community: [contributing](CONTRIBUTING.md), [conduct](CODE_OF_CONDUCT.md), [support](SUPPORT.md), [governance](GOVERNANCE.md)
 - Safety: [security policy](SECURITY.md), [provenance](PROVENANCE.md), [scope](SCOPE.md)
-- Release: [changelog](CHANGELOG.md), [launch kit](docs/LAUNCH_KIT.md), [MIT license](LICENSE)
+- Release: [changelog](CHANGELOG.md), [MIT license](LICENSE)
 - Contribution queue: [prepared issue seeds](docs/ISSUE_SEEDS.md)
 - Related experiments: [optional ecosystem map](ECOSYSTEM.md)
 

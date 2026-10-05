@@ -15,4 +15,4 @@ Contributors submit issues, fixtures, documentation, or code. Repeat contributor
 
 ## Releases and succession
 
-The release steward verifies the checklist in [LAUNCH_KIT.md](docs/LAUNCH_KIT.md), signs off the changelog, and triggers releases through reviewed tags. If stewardship changes, the successor and effective date will be recorded here before access changes.
+The release steward confirms green CI and the offline demo at the release commit, signs off the changelog, and triggers releases through reviewed tags. If stewardship changes, the successor and effective date will be recorded here before access changes.
