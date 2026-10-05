@@ -6,9 +6,9 @@ contact_links:
   - name: Usage and support
     url: https://github.com/Akhilesh-Gogikar/semver-weather/blob/main/SUPPORT.md
     about: Read the support policy before filing an issue.
-  - name: Prepared contributor issues
-    url: https://github.com/Akhilesh-Gogikar/semver-weather/blob/main/docs/ISSUE_SEEDS.md
-    about: Choose a scoped issue seed with acceptance criteria, test plan, and likely files.
+  - name: Issues ready for contributors
+    url: https://github.com/Akhilesh-Gogikar/semver-weather/issues?q=is%3Aissue+is%3Aopen+label%3A%22status%3A+ready%22
+    about: Choose a scoped issue with acceptance criteria, test plan, and likely files.
   - name: Contribution guide
     url: https://github.com/Akhilesh-Gogikar/semver-weather/blob/main/CONTRIBUTING.md
     about: Review pathways, clean-room rules, triage expectations, and recognition.

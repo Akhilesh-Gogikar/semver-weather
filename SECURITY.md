@@ -15,4 +15,4 @@ Include the affected version or commit, impact, a minimal synthetic reproduction
 
 ## Security model
 
-Semver Weather treats packuments, manifests, child-process output, and upstream responses as untrusted inputs. Network access and command execution still occur with the invoking user’s host permissions. The tool is not a sandbox, credential broker, or safe way to execute an untrusted repository. See [PRIVACY.md](docs/PRIVACY.md) and [ARCHITECTURE.md](docs/ARCHITECTURE.md).
+Semver Weather treats packuments, manifests, child-process output, and upstream responses as untrusted inputs. Network access and command execution still occur with the invoking user’s host permissions. The tool is not a sandbox, credential broker, or safe way to execute an untrusted repository. The runner does not inject `--ignore-scripts`: an install command without it executes dependency lifecycle scripts from every sampled date. See [PRIVACY.md](docs/PRIVACY.md) and [ARCHITECTURE.md](docs/ARCHITECTURE.md).

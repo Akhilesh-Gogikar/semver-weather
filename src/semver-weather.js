@@ -10,7 +10,7 @@ const { spawn } = require("node:child_process");
 const MAX_PACKUMENT_BYTES = 16 * 1024 * 1024;
 const DEFAULT_OUTPUT_BYTES = 64 * 1024;
 const STAGES = ["install", "build", "test"];
-const VERSION = "0.1.0";
+const VERSION = "0.1.1";
 
 function sortJson(value) {
   if (Array.isArray(value)) return value.map(sortJson);
@@ -373,7 +373,7 @@ function parseArgs(argv) {
 }
 
 function usage() {
-  return `Semver Weather (private MVP)
+  return `Semver Weather (alpha)
 
 Usage:
   semver-weather filter PACKUMENT.json --cutoff DATE [--output FILE|-]
